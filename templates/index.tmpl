@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sample App</title>
+</head>
+
+<body>
+    <h1>{{.data}}</h1>
+
+    <form action="/new" method="POST">
+        <p>
+            <label>名前</label>
+            <input type="text" name="name" value="">
+        </p>
+        <p>
+            <label>年齢</label>
+            <input type="text" name="age" value="">
+        </p>
+        <p>
+            <input type="submit" value="送信">
+        </p>
+    </form>
+
+    <h2>ユーザー一覧</h2>
+    <ul>
+        {{ range .people }}
+        <li>
+            {{.ID}}: {{.Name}}さん / {{.Age}}歳
+            <a href="/edit/{{.ID}}">編集</a>
+            <form action="/delete" method="POST" style="display: inline-block;">
+                <input type="submit" value="削除">
+                <input type="hidden" name="id" value="{{.ID}}">
+            </form>
+        </li>
+        {{ end }}
+    </ul>
+</body>
+
+</html>

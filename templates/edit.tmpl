@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sample App</title>
+</head>
+
+<body>
+    <h1>編集ページ</h1>
+
+    <form action="/update" method="POST">
+        <p>
+            <label>名前</label>
+            <input type="text" name="name" value="{{.people.Name}}">
+        </p>
+        <p>
+            <label>年齢</label>
+            <input type="text" name="age" value="{{.people.Age}}">
+        </p>
+        <p>
+            <input type="submit" value="送信">
+        </p>
+        <input type="hidden" name="id" value="{{.people.ID}}">
+    </form>
+
+</body>
+
+</html>
